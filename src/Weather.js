@@ -17,7 +17,7 @@ class Weather extends Component{
 
   componentDidMount(){
     if(this.props.name !== ""){
-      fetch("http://api.openweathermap.org/data/2.5/weather?q="+this.props.name+"&units=metric&APPID=YOURAPIKEYHERE")
+      fetch("http://api.openweathermap.org/data/2.5/weather?q="+this.props.name+"&units=metric&APPID=a85bd598f0c31c516945fc7df8daa0b5")
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -75,22 +75,19 @@ class Weather extends Component{
 
               </div>
 
+              <p className = "weatherDescription">
+                {weather}
+              </p>
               {this.state.minMax &&
-                <div className="stuff">
-                  <p className = "weatherDescription">
-                    {weather}
-                  </p>
-
-                  <div className = "imgAndWeather">
-                    <img src = {'/images/'+weather+'.png'} alt = {weather}/>
-                    <div className="mainAndHighLowWeathers">
-                      <h1>
-                        {tempC} C° | {tempF} F°
-                      </h1>
-                      <p>
-                        H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
-                      </p>
-                    </div>
+                <div className = "imgAndWeather">
+                  <img src = {'/images/'+weather+'.png'} alt = {weather}/>
+                  <div className="mainAndHighLowWeathers">
+                    <h1>
+                      {tempC} C° | {tempF} F°
+                    </h1>
+                    <p>
+                      H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
+                    </p>
                   </div>
                 </div>
               }
