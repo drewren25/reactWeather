@@ -41,7 +41,6 @@ class Weather extends Component{
   render(){
 
     var {isLoaded, items} = this.state;
-    var location = this.props.name;
 
     if(!isLoaded){
         return(
@@ -51,7 +50,7 @@ class Weather extends Component{
 
       if(items.name !== undefined){
 
-        location = items.name;
+        var location = items.name;
         var weather = items.weather[0].main;
         var tempC = items.main.temp.toFixed(0);
         var tempF = (items.main.temp * (9/5) + 32).toFixed(0);

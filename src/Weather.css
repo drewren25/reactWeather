@@ -7,8 +7,8 @@ a{
   background: rgb(255, 255, 255, .3);
   border-radius: 4%;
   box-shadow: 2.5px 2.5px rgb(0, 0, 0, .35);
-  max-width: 600px;
   margin: 20px !important;
+  max-width: 600px;
   padding-bottom: 5px;
 }
 
@@ -16,8 +16,8 @@ a{
   background: rgb(255, 255, 255, .3);
   border-radius: 10%;
   box-shadow: 2.5px 2.5px rgb(0, 0, 0, .35);
-  max-width: 400px;
   margin: 20px !important;
+  max-width: 400px;
   padding-bottom: 0px;
 }
 
@@ -77,10 +77,21 @@ p{
   margin-top: 0;
 }
 
+/*this is just me testing stuff out for other possible features*/
+
 @keyframes thing{
   from{
-    opacity: 1;
+    background: rgb(255, 255, 255, .3);
+    border-radius: 4%;
+    box-shadow: 2.5px 2.5px rgb(0, 0, 0, .35);
+    margin: 20px !important;
+    max-width: 600px;
   }to{
-    opacity: 0;
+    background: rgb(255, 255, 255, .3);
+    border-radius: 10%;
+    box-shadow: 2.5px 2.5px rgb(0, 0, 0, .35);
+    margin: 20px !important;
+    max-width: 400px;
+    padding-bottom: 0px;
   }
 }
