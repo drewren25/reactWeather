@@ -30,8 +30,8 @@ I will be glad to look at it!
 •The submit button is actually a special class for an a tag from the sbuttons repository here on Github! It was the first opensource project I had ever contributed to and I highly
 recommend reading into their documentation before using this application in case you want to include what they have in your use of this project or in any other project you may have!
 
-•I used sbuttons pink button here but changed the hex value a bit in sbuttons.min.css to better match a different shade which I was looking for, so this is why you might see a
-difference between mine and sbutton's on their website or if you try to load your own pink-btn.
+•I used sbuttons' pink button here but changed the hex value a bit in sbuttons.min.css to better match a different shade which I was looking for, so this is why you might see a
+difference between mine and sbuttons' on their website or if you try to load your own pink-btn.
 
 •Please feel free to file any other issues you may come across while using this project. This was my first experience with either react or apis so there are sure to be errors or
-mistakes and things I could do better. I'm also rather new to creating projects and pushing them to github, so any feedback on anything is much appreciated!
+mistakes and things I could do better. I'm also rather new to creating projects and pushing them to Github, so any feedback on anything is much appreciated!
