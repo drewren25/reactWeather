@@ -9,7 +9,8 @@ class Weather extends Component{
     this.state = {
       items: [],
       isLoaded: false,
-      minMax: true
+      min: true,
+      max: false
     }
     this.componentDidMount = this.componentDidMount.bind(this);
     this.minMax = this.minMax.bind(this);
@@ -34,7 +35,8 @@ class Weather extends Component{
 
   minMax(){
     this.setState({
-      minMax: !this.state.minMax
+      min: !this.state.min,
+      max: true
     })
   }
 
@@ -61,26 +63,26 @@ class Weather extends Component{
 
         return(
 
-          <div className={`${this.state.minMax ? "box" : "boxMin"}`}>
+          <div className = {`${this.state.min ? "box" : "boxMin"} ${this.state.max ? "boxMax" : ""}`}>
 
             <div className = "weather">
 
-              <div className="locationAndMinMaxButton">
+              <div className = "locationAndMinMaxButton">
 
                 <p className = "location">
                   {location}{'\u00A0'}
                 </p>
-                <a href="#" className="minMaxButton" onClick = {this.minMax}>-</a>
+                <a href="#" className="minMaxButton" onClick = {this.minMax}>-/+</a>
 
               </div>
 
               <p className = "weatherDescription">
                 {weather}
               </p>
-              {this.state.minMax &&
+              {this.state.min &&
                 <div className = "imgAndWeather">
                   <img src = {'/images/'+weather+'.png'} alt = {weather}/>
-                  <div className="mainAndHighLowWeathers">
+                  <div className = "mainAndHighLowWeathers">
                     <h1>
                       {tempC} C° | {tempF} F°
                     </h1>
