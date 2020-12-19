@@ -60,6 +60,8 @@ class Weather extends Component{
         var tempHighF = (items.main.temp_max * (9/5) + 32).toFixed(0);
         var tempLowC = items.main.temp_min.toFixed(0);
         var tempLowF = (items.main.temp_min * (9/5) + 32).toFixed(0);
+        var windSpeedMeters = items.wind.speed;
+        var windSpeedMiles = (items.wind.speed * 2.237).toFixed(2);
 
         return(
 
@@ -79,15 +81,19 @@ class Weather extends Component{
               <p className = "weatherDescription">
                 {weather}
               </p>
+              
               {this.state.min &&
                 <div className = "imgAndWeather">
                   <img src = {'/images/'+weather+'.png'} alt = {weather}/>
-                  <div className = "mainAndHighLowWeathers">
+                  <div className = "weathersAndWindSpeed">
                     <h1>
                       {tempC} C° | {tempF} F°
                     </h1>
                     <p>
                       H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
+                    </p>
+                    <p>
+                      Wind speed: {windSpeedMeters} m/s | {windSpeedMiles} m/h
                     </p>
                   </div>
                 </div>

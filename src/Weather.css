@@ -1,8 +1,4 @@
 
-a{
-  text-decoration: none;
-}
-
 .box{
   background: rgba(255, 255, 255, .3);
   border-radius: 4%;
@@ -13,13 +9,13 @@ a{
 }
 
 .boxMax{
-  animation: maximize .5s ease forwards;
+  animation: maximize .3s ease forwards;
   margin: 20px !important;
   transition-delay: 10s !important;
 }
 
 .boxMin{
-  animation: minimize .5s ease forwards;
+  animation: minimize .3s ease forwards;
   margin: 20px !important;
 }
 
@@ -34,12 +30,21 @@ img{
   flex-direction: row;
 }
 
+/*.linkToWindSpeeds{
+  color: blue;
+  font-size: 12px;
+}
+
+.linkToWindSpeeds:active, .linkToWindSpeeds:focus{
+  color: #5e2d94
+}*/
+
 .location{
   font-size: 35px;
   margin: 0px;
 }
 
-.locationAndMinMaxButton{
+.locationAndMinMaxButton, .windSpeed{
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -54,6 +59,7 @@ img{
   font-weight: bold;
   height: 25px;
   text-align: center;
+  text-decoration: none;
   width: 30px;
 }
 
@@ -72,7 +78,7 @@ p{
   margin: 5px !important;
 }
 
-.weather, .mainAndHighLowWeathers{
+.weather, .weathersAndWindSpeed{
   align-items: flex-start;
   color: white;
   display: flex;
@@ -84,6 +90,7 @@ p{
   margin-top: 0;
 }
 
+
 /*testing*/
 
 @keyframes minimize{
@@ -91,7 +98,7 @@ p{
     background: rgba(255, 255, 255, .3);
     border-radius: 4%;
     box-shadow: 2.5px 2.5px rgb(0, 0, 0, .35);
-    height: 317.8px;
+    height: 330.27px;
     margin: 20px !important;
     max-width: 600px;
   }to{
@@ -117,7 +124,7 @@ p{
     background: rgba(255, 255, 255, .3);
     border-radius: 4%;
     box-shadow: 2.5px 2.5px rgba(0, 0, 0, .35);
-    height: 317.8px;
+    height: 330.27px;
     max-width: 600px;
     padding-bottom: 5px;
   }
