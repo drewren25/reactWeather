@@ -10,8 +10,8 @@ Firstly, you must access your own api key from openweathermaps at https://openwe
 
 After loading the code into your text editor/IDE and bringing up a browser to run the code, enter a location into the white text input box. Locations include: a 
 city(e.g: San Francisco), state/province(e.g: California), country(e.g: United States), continent(e.g: North America), or Earth/Globe. After pressing the submit button, a block
-appears under the input box which gives the name of the location, the current weather description, an image of the weather description, the current temperature, and the expected
-high and low temperatures of the day. Clicking the submit button again will get rid of the block, and clicking it again will re-display it. If you wish to display another weather,
+appears under the input box which gives the name of the location, the current weather description, an image of the weather description, the current temperature, the expected
+high and low temperatures of the day, and wind speeds. Clicking the submit button again will get rid of the block, and clicking it again will re-display it. If you wish to display another weather,
 you can type the location at any time but if a previous weather block is displayed you'll have to click the submit button to undisplay it and then submit the new location to 
 display the new location's weather. There is another feature as well which is the minimize/maximize button (abbreviated as minMax in the code) next to the location name in the 
 weather block. As you can see by using the application, the weather blocks display the entire weather upon your first submit. However if you wish, you may minimize this to just
@@ -22,7 +22,7 @@ stacked in a minimized fashion would save space. It also is just a cool feature 
 •If there is an error loading your location's weather, an error message will appear where the weather block would. Refer to the message when it pops up or in the code(it's in
 Weather.js) for more insight on what the message says.
 
-•Temperatures are displayed in both fahrenheit and celsius as should be labeled. They are separated by the | character.
+•Temperatures are displayed in both fahrenheit and celsius and wind speeds are in meters/sec and miles/hour as should be labeled. They are separated by the | character.
 
 •Some weather descriptions may lack images, I just have those that I have come across. If you happen to find a weather description which lacks an image, please file an issue and
 I will be glad to look at it!
