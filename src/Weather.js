@@ -10,10 +10,12 @@ class Weather extends Component{
       items: [],
       isLoaded: false,
       min: true,
-      max: false
+      max: false,
+      seeMore: false
     }
     this.componentDidMount = this.componentDidMount.bind(this);
     this.minMax = this.minMax.bind(this);
+    this.seeMore = this.seeMore.bind(this);
   }
 
   componentDidMount(){
@@ -40,6 +42,12 @@ class Weather extends Component{
     })
   }
 
+  seeMore(){
+    this.setState({
+      seeMore: !this.state.seeMore
+    })
+  }
+
   render(){
 
     var {isLoaded, items} = this.state;
@@ -62,44 +70,64 @@ class Weather extends Component{
         var tempLowF = (items.main.temp_min * (9/5) + 32).toFixed(0);
         var windSpeedMeters = items.wind.speed;
         var windSpeedMiles = (items.wind.speed * 2.237).toFixed(2);
+        var windDir = items.wind.deg;
+        var humidity = items.main.humidity;
 
         return(
+          <div>
 
-          <div className = {`${this.state.min ? "box" : "boxMin"} ${this.state.max ? "boxMax" : ""}`}>
+            <div className = {`${this.state.min ? "box" : "boxMin"} ${this.state.max ? "boxMax" : ""}`}>
 
-            <div className = "weather">
+              <div className = "weather">
 
-              <div className = "locationAndMinMaxButton">
+                <div className = "locationAndMinMaxButton">
 
-                <p className = "location">
-                  {location}{'\u00A0'}
+                  <p className = "location">
+                    {location}{'\u00A0'}
+                  </p>
+                  <a href="#" className="minMaxButton" onClick = {this.minMax}>-/+</a>
+
+                </div>
+
+                <p className = "weatherDescription">
+                  {weather}
                 </p>
-                <a href="#" className="minMaxButton" onClick = {this.minMax}>-/+</a>
+
+                {this.state.min &&
+                  <div className = {`${this.state.max ? "imgAndWeather imgandWeatherMax" : "imgAndWeather"}`}>
+                    <img src = {'/images/'+weather+'.png'} alt = {weather}/>
+                    <div className = "weathersAndWindSpeed">
+                      <h1>
+                        {tempC} C° | {tempF} F°
+                      </h1>
+                      <p>
+                        H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
+                      </p><br/>
+
+                      <a href="#" className="seeMore" onClick = {this.seeMore}>See more &darr;</a>
+                    </div>
+                  </div>
+                }
 
               </div>
 
-              <p className = "weatherDescription">
-                {weather}
-              </p>
-              
-              {this.state.min &&
-                <div className = "imgAndWeather">
-                  <img src = {'/images/'+weather+'.png'} alt = {weather}/>
-                  <div className = "weathersAndWindSpeed">
-                    <h1>
-                      {tempC} C° | {tempF} F°
-                    </h1>
-                    <p>
-                      H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
-                    </p>
-                    <p>
-                      Wind speed: {windSpeedMeters} m/s | {windSpeedMiles} m/h
-                    </p>
-                  </div>
-                </div>
-              }
-
             </div>
+
+            {this.state.seeMore &&
+              <div className="box seeMoreBox">
+                <div className = {`${this.state.seeMore ? "moreInfo" : "lessInfo"}`}>
+                  <p>
+                    Wind speed: {windSpeedMeters} m/s | {windSpeedMiles} m/h
+                  </p>
+                  <p>
+                    Wind direction: {windDir}°
+                  </p>
+                  <p>
+                    Humidity: {humidity}%
+                  </p>
+                </div>
+              </div>
+            }
 
           </div>
 
