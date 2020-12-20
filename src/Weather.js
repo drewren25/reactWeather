@@ -9,7 +9,7 @@ class Weather extends Component{
     this.state = {
       items: [],
       isLoaded: false,
-      min: true,
+      min: false,
       max: false,
       seeMore: false
     }
@@ -72,11 +72,19 @@ class Weather extends Component{
         var windSpeedMiles = (items.wind.speed * 2.237).toFixed(2);
         var windDir = items.wind.deg;
         var humidity = items.main.humidity;
+        var clouds = items.clouds.all;
+        var visibility = items.visibility;
+        var visbilityMiles = (items.visibility/1609).toFixed(2);
+        var visibilityAsAString = visibility+"m";
+        if(visibility >= 900){
+          visibility /= 1000;
+          visibilityAsAString = visibility+"km";
+        }
 
         return(
           <div>
 
-            <div className = {`${this.state.min ? "box" : "boxMin"} ${this.state.max ? "boxMax" : ""}`}>
+            <div className = {`${this.state.min ? "boxMin" : "box"} ${this.state.max ? "boxMax" : ""}`}>
 
               <div className = "weather">
 
@@ -93,7 +101,7 @@ class Weather extends Component{
                   {weather}
                 </p>
 
-                {this.state.min &&
+                {!this.state.min &&
                   <div className = {`${this.state.max ? "imgAndWeather imgandWeatherMax" : "imgAndWeather"}`}>
                     <img src = {'/images/'+weather+'.png'} alt = {weather}/>
                     <div className = "weathersAndWindSpeed">
@@ -113,18 +121,20 @@ class Weather extends Component{
 
             </div>
 
-            {this.state.seeMore &&
+            {this.state.seeMore && !this.state.min &&
               <div className="box seeMoreBox">
                 <div className = {`${this.state.seeMore ? "moreInfo" : "lessInfo"}`}>
-                  <p>
-                    Wind speed: {windSpeedMeters} m/s | {windSpeedMiles} m/h
-                  </p>
-                  <p>
-                    Wind direction: {windDir}°
-                  </p>
-                  <p>
-                    Humidity: {humidity}%
-                  </p>
+                  <ul>
+                    <li>Wind speed: {windSpeedMeters} m/s | {windSpeedMiles} m/h</li>
+                    <li>Wind direction: {windDir}°</li>
+                  </ul>
+                  <ul>
+                    <li>Humidity: {humidity}%</li>
+                  </ul>
+                  <ul>
+                    <li>Clouds: {clouds}%</li>
+                    <li>Visibility: {visibilityAsAString} | {visbilityMiles} miles</li>
+                  </ul>
                 </div>
               </div>
             }
