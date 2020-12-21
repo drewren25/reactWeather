@@ -22,7 +22,7 @@ stacked in a minimized fashion would save space. It also is just a cool feature 
 •If there is an error loading your location's weather, an error message will appear where the weather block would. Refer to the message when it pops up or in the code(it's in
 Weather.js) for more insight on what the message says.
 
-•Temperatures are displayed in both fahrenheit and celsius and wind speeds are in meters/sec and miles/hour as should be labeled. They are separated by the | character.
+•Temperatures are displayed in both fahrenheit and celsius and wind speeds are in meters/sec and miles/hour as should be labeled. They are separated by the "|" character.
 
 •Some weather descriptions may lack images, I just have those that I have come across. If you happen to find a weather description which lacks an image, please file an issue and
 I will be glad to look at it!
