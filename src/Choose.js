@@ -15,7 +15,7 @@ class Choose extends Component{
     this.handleChange = this.handleChange.bind(this);
   }
 
-  revealWeather(){
+  revealWeather(){  //shows weather block: maximized, without show more
     this.setState({
       clicked: !this.state.clicked
     });

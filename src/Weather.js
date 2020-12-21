@@ -35,14 +35,14 @@ class Weather extends Component{
     }
   }
 
-  minMax(){
+  minMax(){  //alternates btwn minimized and maximized box after initial display
     this.setState({
       min: !this.state.min,
-      max: true
+      max: true   //needed so that boxMax isn't applied as soon as a box appears
     })
   }
 
-  seeMore(){
+  seeMore(){  //alternates display of see more
     this.setState({
       seeMore: !this.state.seeMore
     })
@@ -76,12 +76,13 @@ class Weather extends Component{
         var visibility = items.visibility;
         var visbilityMiles = (items.visibility/1609).toFixed(2);
         var visibilityAsAString = visibility+"m";
-        if(visibility >= 900){
+        if(visibility >= 900){  //changes units to km if visibility >= 900 meters
           visibility /= 1000;
           visibilityAsAString = visibility+"km";
         }
 
         return(
+
           <div>
 
             <div className = {`${this.state.min ? "boxMin" : "box"} ${this.state.max ? "boxMax" : ""}`}>
@@ -121,7 +122,7 @@ class Weather extends Component{
 
             </div>
 
-            {this.state.seeMore && !this.state.min &&
+            {this.state.seeMore && !this.state.min &&  //displays if seeMore is clicked and box isn't minimized
               <div className="box seeMoreBox">
                 <div className = {`${this.state.seeMore ? "moreInfo" : "lessInfo"}`}>
                   <ul>
