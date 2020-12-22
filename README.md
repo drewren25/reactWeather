@@ -1,6 +1,3 @@
----
-permalink: /index.html
----
 # React Weather
 A reactJS based weather application which displays weather data from the openweathermap api based on user location input.
 
