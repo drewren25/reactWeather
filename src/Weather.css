@@ -64,6 +64,10 @@ img{
   outline: 0;
 }
 
+.minMaxButton:hover, .seeMore:hover{
+  cursor: pointer;
+}
+
 .moreInfo{
   display: block;
 }

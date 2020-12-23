@@ -20,7 +20,7 @@ class Weather extends Component{
 
   componentDidMount(){
     if(this.props.name !== ""){
-      fetch("http://api.openweathermap.org/data/2.5/weather?q="+this.props.name+"&units=metric&APPID=a85bd598f0c31c516945fc7df8daa0b5")
+      fetch("https://api.openweathermap.org/data/2.5/weather?q="+this.props.name+"&units=metric&APPID=a85bd598f0c31c516945fc7df8daa0b5")
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -94,7 +94,7 @@ class Weather extends Component{
                   <p className = "location">
                     {location}{'\u00A0'}
                   </p>
-                  <a href="#" className="minMaxButton" onClick = {this.minMax}>-/+</a>
+                  <a href = "/#" className="minMaxButton" onClick = {this.minMax}>-/+</a>
 
                 </div>
 
@@ -113,7 +113,7 @@ class Weather extends Component{
                         H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
                       </p><br/>
 
-                      <a href="#" className="seeMore" onClick = {this.seeMore}>See more &darr;</a>
+                      <a href = "/#" className="seeMore" onClick = {this.seeMore}>See more &darr;</a>
                     </div>
                   </div>
                 }
