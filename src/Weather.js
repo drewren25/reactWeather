@@ -20,7 +20,7 @@ class Weather extends Component{
 
   componentDidMount(){
     if(this.props.name !== ""){
-      fetch("https://api.openweathermap.org/data/2.5/weather?q="+this.props.name+"&units=metric&APPID=a85bd598f0c31c516945fc7df8daa0b5")
+      fetch("https://api.openweathermap.org/data/2.5/weather?q="+this.props.name+"&units=metric&APPID=YOURAPIKEYHERE")
       .then(res => res.json())
       .then(json => {
         this.setState({
