@@ -80,6 +80,8 @@ class Weather extends Component{
           visibility /= 1000;
           visibilityAsAString = visibility+"km";
         }
+        var feelsLikeC = items.main.feels_like.toFixed(0);
+        var feelsLikeF = (items.main.feels_like * (9/5) + 32).toFixed(0);
 
         return(
 
@@ -105,13 +107,16 @@ class Weather extends Component{
                 {!this.state.min &&
                   <div className = {`${this.state.max ? "imgAndWeather imgandWeatherMax" : "imgAndWeather"}`}>
                     <img src = {'/images/'+weather+'.png'} alt = {weather}/>
-                    <div className = "weathersAndWindSpeed">
+                    <div className = "weatherValues">
                       <h1>
                         {tempC} C° | {tempF} F°
                       </h1>
                       <p>
                         H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
-                      </p><br/>
+                      </p>
+                      <p>
+                        Feels Like: {feelsLikeC} C° | {feelsLikeF} F°
+                      </p>
 
                       <a href = "/#" className="seeMore" onClick = {this.seeMore}>See more &darr;</a>
                     </div>
