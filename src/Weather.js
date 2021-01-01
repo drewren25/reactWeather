@@ -85,7 +85,7 @@ class Weather extends Component{
 
         return(
 
-          <div>
+          <div className="wholeThing">
 
             <div className = {`${this.state.min ? "boxMin" : "box"} ${this.state.max ? "boxMax" : ""}`}>
 
@@ -111,12 +111,15 @@ class Weather extends Component{
                       <h1>
                         {tempC} C° | {tempF} F°
                       </h1>
-                      <p>
-                        H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
-                      </p>
-                      <p>
-                        Feels Like: {feelsLikeC} C° | {feelsLikeF} F°
-                      </p>
+
+                      <div className="highLowAndFeelsLike">
+                        <p>
+                          H: {tempHighC} C° | {tempHighF} F° {'\u00A0'} L: {tempLowC} C° | {tempLowF} F°
+                        </p>
+                        <p>
+                          Feels Like: {feelsLikeC} C° | {feelsLikeF} F°
+                        </p>
+                      </div>
 
                       <a href = "/#" className="seeMore" onClick = {this.seeMore}>See more &darr;</a>
                     </div>
@@ -144,7 +147,6 @@ class Weather extends Component{
                 </div>
               </div>
             }
-
           </div>
 
         );
