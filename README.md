@@ -9,10 +9,10 @@ Firstly, you must access your own api key from openweathermaps at https://openwe
 "YOURAPIKEYHERE" text in Weather.js and you should be good to go!
 
 After loading the code into your text editor/IDE and bringing up a browser to run the code, enter a location into the white text input box. Locations include: a 
-city(e.g: San Francisco), state/province(e.g: California), country(e.g: United States), continent(e.g: North America), or Earth/Globe. After pressing the submit button, a block
+city(e.g: San Francisco), state/province(e.g: California), country(e.g: United States), continent(e.g: North America), or Earth/Globe. After submitting the location, a block
 appears under the input box which gives the name of the location, the current weather description, an image of the weather description, the current temperature, the expected
-high and low temperatures of the day, and wind speeds. Clicking the submit button again will get rid of the block, and clicking it again will re-display it. If you wish to display another weather,
-you can type the location at any time but if a previous weather block is displayed you'll have to click the submit button to undisplay it and then submit the new location to 
+high and low temperatures of the day, and the "feels like" temperature. There is also a "see more" at the bottom of the block and clicking it displays another block which shows things such as wind speed, wind direction, and humidity. Submitting the location again will get rid of the block, and clicking it again will re-display it. If you wish to display another weather,
+you can type the location at any time but if a previous weather block is displayed you'll have to submit to undisplay it and then submit the new location to 
 display the new location's weather. There is another feature as well which is the minimize/maximize button (abbreviated as minMax in the code) next to the location name in the 
 weather block. As you can see by using the application, the weather blocks display the entire weather upon your first submit. However if you wish, you may minimize this to just
 the location name and minMax button. I added this because I want to later add a feature of being able to add multiple blocks of weather for different locations and having them 
@@ -24,6 +24,10 @@ Weather.js) for more insight on what the message says.
 
 •Temperatures are displayed in both fahrenheit and celsius and wind speeds are in meters/sec and miles/hour as should be labeled.
 
+•If you have the see more block displayed and you minimize the original block, the see more block will disappear and reappear when you maximize.
+
+•When I say "submit the location" that can be done by either hitting the enter key or clicking the submit button.
+
 •Some weather descriptions may lack images, I just have those that I have come across. If you happen to find a weather description which lacks an image, please file an issue and
 I will be glad to look at it!
 
@@ -33,5 +37,5 @@ recommend reading into their documentation before using this application in case
 •I used sbuttons' pink button here but changed the hex value a bit in sbuttons.min.css to better match a different shade which I was looking for, so this is why you might see a
 difference between mine and sbuttons' on their website or if you try to load your own pink-btn.
 
-•Please feel free to file any other issues you may come across while using this project. This was my first experience with either react or apis so there are sure to be errors or
+•Please feel free to call out any other issues you may come across while using this project. This was my first experience with either react or apis so there are sure to be errors or
 mistakes and things I could do better. I'm also rather new to creating projects and pushing them to Github, so any feedback on anything is much appreciated!
