@@ -25,6 +25,12 @@ class Choose extends Component{
    this.setState({value: event.target.value});
   }
 
+  enterKey(event){
+    if(event.keyCode === 13){
+      this.revealWeather();
+    }
+  }
+
   render(){
     return(
       <div className = "content">
@@ -37,8 +43,8 @@ class Choose extends Component{
 
             <div className = "inputAndButton">
               <input type = "text" className = "choosePlace" value = {this.state.value}
-              placeholder = "e.g: San Francisco" onChange = {this.handleChange} onSubmit = {this.revealWeather}/>
-              <button className = "sbtn pink-btn" onClick = {this.revealWeather}>Submit</button>
+              placeholder = "e.g: San Francisco" onChange = {this.handleChange} onKeyDown={(e) => this.enterKey(e)}/>
+              <button className = "sbtn pink-btn" onClick = {this.revealWeather} type = "submit">Submit</button>
 
             </div>
           </div>

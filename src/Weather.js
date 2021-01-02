@@ -48,6 +48,17 @@ class Weather extends Component{
     })
   }
 
+  determineWindDir(dir){
+    if(dir==0 || dir==360){return "E";}
+    else if(dir==90){return "N";}
+    else if(dir==180){return "W";}
+    else if(dir==270){return "S";}
+    else if(dir>0 &&  dir<90){return "NE";}
+    else if(dir>90 && dir<180){return "NW";}
+    else if(dir>180 &&  dir<270){return "SW";}
+    else if(dir>270 && dir<360){return "SE";}
+  }
+
   render(){
 
     var {isLoaded, items} = this.state;
@@ -71,6 +82,7 @@ class Weather extends Component{
         var windSpeedMeters = items.wind.speed;
         var windSpeedMiles = (items.wind.speed * 2.237).toFixed(2);
         var windDir = items.wind.deg;
+        var windDirNSEW = this.determineWindDir(items.wind.deg);
         var humidity = items.main.humidity;
         var clouds = items.clouds.all;
         var visibility = items.visibility;
@@ -78,10 +90,23 @@ class Weather extends Component{
         var visibilityAsAString = visibility+"m";
         if(visibility >= 900){  //changes units to km if visibility >= 900 meters
           visibility /= 1000;
-          visibilityAsAString = visibility+"km";
+          visibilityAsAString = visibility+" km";
         }
         var feelsLikeC = items.main.feels_like.toFixed(0);
         var feelsLikeF = (items.main.feels_like * (9/5) + 32).toFixed(0);
+
+/*
+        var sunriseUnix = items.sys.sunrise;
+        var sunsetUnix = items.sys.sunset;
+        var riseTime = new Date(sunriseUnix * 1000 +items.timezone);
+        var setTime = new Date(sunsetUnix * 1000 +items.timezone);
+        var riseHours = riseTime.getHours();
+        var setHours = setTime.getHours();
+        var riseMin = "0" + riseTime.getMinutes();
+        var setMin = "0" + setTime.getMinutes();
+        var sunrise = riseHours + ':' + riseMin.substr(-2);
+        var sunset = setHours + ':' + setMin.substr(-2);
+*/
 
         return(
 
@@ -135,7 +160,7 @@ class Weather extends Component{
                 <div className = {`${this.state.seeMore ? "moreInfo" : "lessInfo"}`}>
                   <ul>
                     <li>Wind speed: {windSpeedMeters} m/s | {windSpeedMiles} m/h</li>
-                    <li>Wind direction: {windDir}°</li>
+                    <li>Wind direction: {windDirNSEW}, {windDir}°</li>
                   </ul>
                   <ul>
                     <li>Humidity: {humidity}%</li>
