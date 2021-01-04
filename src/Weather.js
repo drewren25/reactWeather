@@ -85,12 +85,12 @@ class Weather extends Component{
         var windDirNSEW = this.determineWindDir(items.wind.deg);
         var humidity = items.main.humidity;
         var clouds = items.clouds.all;
-        var visibility = items.visibility;
-        var visbilityMiles = (items.visibility/1609).toFixed(2);
-        var visibilityAsAString = visibility+"m";
+        var visibility = items.visibility.toFixed(0);
+        var visbilityMiles = (items.visibility/1609).toFixed(0);
+        var visibilityAsAString = visibility+" m";
         if(visibility >= 900){  //changes units to km if visibility >= 900 meters
           visibility /= 1000;
-          visibilityAsAString = visibility+" km";
+          visibilityAsAString = visibility.toFixed(0)+" km";
         }
         var feelsLikeC = items.main.feels_like.toFixed(0);
         var feelsLikeF = (items.main.feels_like * (9/5) + 32).toFixed(0);
