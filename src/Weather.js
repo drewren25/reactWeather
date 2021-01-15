@@ -49,10 +49,10 @@ class Weather extends Component{
   }
 
   determineWindDir(dir){
-    if(dir==0 || dir==360){return "E";}
-    else if(dir==90){return "N";}
-    else if(dir==180){return "W";}
-    else if(dir==270){return "S";}
+    if(dir===0 || dir===360){return "E";}
+    else if(dir===90){return "N";}
+    else if(dir===180){return "W";}
+    else if(dir===270){return "S";}
     else if(dir>0 &&  dir<90){return "NE";}
     else if(dir>90 && dir<180){return "NW";}
     else if(dir>180 &&  dir<270){return "SW";}
