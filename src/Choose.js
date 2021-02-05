@@ -8,7 +8,7 @@ class Choose extends Component{
   constructor(props){
     super(props)
     this.state = {
-      clicked: false,
+      number: 0,
       value: ''
     }
     this.revealWeather = this.revealWeather.bind(this);
@@ -16,9 +16,11 @@ class Choose extends Component{
   }
 
   revealWeather(){  //shows weather block: maximized, without show more
-    this.setState({
-      clicked: !this.state.clicked
-    });
+    if(this.state.number < 5){
+      this.setState({
+        number: this.state.number+=1
+      });
+    }
   }
 
   handleChange(event){
@@ -49,7 +51,11 @@ class Choose extends Component{
             </div>
           </div>
         </div>
-        {this.state.clicked && <Weather name = {this.state.value} />}
+        {(this.state.number >= 1) && <Weather name = {this.state.value} />}
+        {(this.state.number >= 2) && <Weather name = {this.state.value} />}
+        {(this.state.number >= 3) && <Weather name = {this.state.value} />}
+        {(this.state.number >= 4) && <Weather name = {this.state.value} />}
+        {(this.state.number === 5) && <Weather name = {this.state.value} />}
 
       </div>
     );
